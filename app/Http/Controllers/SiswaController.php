@@ -16,7 +16,7 @@ class SiswaController extends Controller
     {
         //
         $siswas = Siswa::all();
-        return view('siswa.index', compact('siswas'));
+        return view('index', compact('siswas'));
     }
 
     /**
@@ -54,9 +54,9 @@ class SiswaController extends Controller
         ]);
 
         if ($proses) {
-            return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil ditambahkan');
+            return redirect()->back()->with('success', 'Data siswa berhasil ditambahkan');
         } else {
-            return redirect()->route('siswa.index')->with('failed', 'Data siswa gagal ditambahkan');
+            return redirect()->back()->with('failed', 'Data siswa gagal ditambahkan');
         }
     }
 

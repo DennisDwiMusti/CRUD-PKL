@@ -1,7 +1,7 @@
-@extends('tempaltes.app', ['title' => 'data siswa'])
+@extends('templates.app', ['title' => 'data siswa'])
 
 @section('content-dinamis')
     <div>
-        <h1>Siswa</h1>
+        <h1>tes</h1>
     </div>
 @endsection
