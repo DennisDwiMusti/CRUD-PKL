@@ -36,14 +36,9 @@ class SiswaController extends Controller
         //
         $request->validate([
             'name'=>'required',
-            'NIS'=>'required',
+            'NIS'=>'required|unique:siswa,NIS',
             'rayon'=>'required',
             'rombel'=>'required',
-        ], [
-            'name.required' => 'Nama wajib diisi',
-            'NIS.required' => 'NIS wajib diisi',
-            'rayon.required' => 'Rayon wajib diisi',
-            'rombel.required' => 'Rombel wajib diisi',
         ]);
 
         $proses = Siswa::create([
@@ -54,7 +49,7 @@ class SiswaController extends Controller
         ]);
 
         if ($proses) {
-            return redirect()->back()->with('success', 'Data siswa berhasil ditambahkan');
+            return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil ditambahkan');
         } else {
             return redirect()->back()->with('failed', 'Data siswa gagal ditambahkan');
         }
@@ -102,7 +97,7 @@ class SiswaController extends Controller
 
 
 
-        return redirect()->route('index')->with('success', 'Data siswa berhasil diubah');
+        return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil diubah');
 
     }
 
@@ -113,6 +108,6 @@ class SiswaController extends Controller
     {
         //
         Siswa::where('id', $id)->delete();
-        return redirect()->route('index')->with('deleted', 'Data siswa berhasil dihapus');
+        return redirect()->back()->with('deleted', 'Data siswa berhasil dihapus');
     }
 }

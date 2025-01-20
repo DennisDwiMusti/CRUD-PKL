@@ -1,7 +1,7 @@
 @extends('templates.app', ['title' => 'Edit Data Siswa'])
 
 @section('content-dinamis')
-    <form action="{{ route('update', $siswa->id) }}" method="POST" class="card p-5">
+    <form action="{{ route('siswa.update', $siswa->id) }}" method="POST" class="card p-5">
         @csrf
         @method('PATCH')
 

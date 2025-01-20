@@ -8,6 +8,7 @@
             <div class="alert alert-danger">{{ Session::get('deleted') }}</div>
     @endif
     <h1 class="mb-4">Data Siswa</h1>
+    <a href="{{ route('siswa.create') }}" class="btn btn-success mb-3">+ Tambah</a>
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
