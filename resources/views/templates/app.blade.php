@@ -10,7 +10,7 @@
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-              <a class="navbar-brand" href="#">Apotek App</a>
+              <a class="navbar-brand" href="#">Data Siswa App</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -24,7 +24,7 @@
                       Obat
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Siswa</a></li>
+                      <li><a class="dropdown-item" href="/">Siswa</a></li>
                       <li><a class="dropdown-item" href="/siswa/buat">Tambah</a></li>
                     </ul>
                   </li>
@@ -34,7 +34,7 @@
         </nav>
 
         <div class="container mt-5">
-            @yield('content')
+            @yield('content-dinamis')
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

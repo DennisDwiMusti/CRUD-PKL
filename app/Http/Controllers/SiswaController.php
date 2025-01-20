@@ -12,11 +12,11 @@ class SiswaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         //
         $siswas = Siswa::all();
-        return view('index', compact('siswas'));
+        return view('siswa.index', compact('siswas'));
     }
 
     /**
