@@ -74,16 +74,36 @@ class SiswaController extends Controller
     public function edit($id)
     {
         //
-        $siswas = Siswa::where('id',$id)->first();
-        return view('siswa.edit', compact('siswas'));
+        $siswa = Siswa::where('id',$id)->first();
+        return view('siswa.edit', compact('siswa'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Siswa $siswa)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'NIS' => 'required',
+            'rayon' => 'required',
+            'rombel' => 'required',
+        ]);
+
+        $siswa = Siswa::where('id', $id)->first();
+
+        $siswa->update([
+            'name' => $request->name,
+            'NIS' => $request->NIS,
+            'rayon' => $request->rayon,
+            'rombel' => $request->rombel,
+        ]);
+
+
+
+        return redirect()->route('index')->with('success', 'Data siswa berhasil diubah');
+
     }
 
     /**

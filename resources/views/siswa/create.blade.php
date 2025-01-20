@@ -1,6 +1,6 @@
 @extends('templates.app', ['title' => 'Buat Data Siswa'])
 
-@section('content')
+@section('content-dinamis')
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card p-4" style="width: 40rem;">
             <form action="{{ route('store') }}" method="POST">
