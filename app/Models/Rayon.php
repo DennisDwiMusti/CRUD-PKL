@@ -9,7 +9,8 @@ class Rayon extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $table = 'rayons';
+    protected $fillable = ['rayon'];
 
     public function siswa()
     {
