@@ -11,11 +11,8 @@ class CreateRayonsTable extends Migration
     {
         Schema::create('rayons', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->timestamps();
-        });
-        Schema::table('siswa', function (Blueprint $table) {
-            $table->string('rayon')->nullable()->change();
         });
 
     }
@@ -24,9 +21,6 @@ class CreateRayonsTable extends Migration
      */
     public function down(): void
     {
-        Schema::table('siswa', function (Blueprint $table) {
-            $table->string('rayon')->nullable(false)->change();
-        });
 
         Schema::dropIfExists('rayons');
     }
