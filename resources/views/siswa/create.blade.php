@@ -1,15 +1,12 @@
 @extends('templates.app', ['title' => 'Buat Data Siswa'])
 
 @section('content-dinamis')
-    <div class="container d-flex justify-content-center align-items-center vh-10">
-        <div class="card p-4" style="width: 40rem;">
-            <form action="{{ route('siswa.store') }}" method="POST">
+
+            <form action="{{ route('siswa.store') }}" method="POST" class="card justify-content-center p-5">
                 @csrf
                 @if (Session::get('failed'))
                     <div class="alert alert-danger my-2">{{ Session::get('failed') }}</div>
                 @endif
-
-
                 <div class="mb-3 row">
                     <label for="name" class="col-sm-3 col-form-label">Nama:</label>
                     <div class="col-sm-9">
@@ -19,16 +16,21 @@
                 <div class="mb-3 row">
                     <label for="NIS" class="col-sm-3 col-form-label">NIS:</label>
                     <div class="col-sm-9">
-                        <input type="number"  class="form-control @error('NIS') is-invalid @enderror " name="NIS" id="NIS" value="{{ old('NIS') }}" placeholder="Masukkan NIS" required>
+                        <input type="number" class="form-control @error('NIS') is-invalid @enderror" name="NIS" id="NIS" value="{{ old('NIS') }}" min="0" placeholder="Masukkan NIS" required>
                         @error('NIS')
-                            <div class="invalid-feedback">NIS sudah dipakai</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="rayon" class="col-sm-3 col-form-label">Rayon:</label>
+                    <label for="rayon_id" class="col-sm-3 col-form-label">Rayon:</label>
                     <div class="col-sm-9">
-                        <input type="text" name="rayon" id="rayon" class="form-control" value="{{ old('rayon') }}" placeholder="Masukkan rayon" required>
+                        <select name="rayon_id" id="rayon_id" class="form-control" required>
+                            <option value="" disabled selected hidden>Pilih Rayon</option>
+                            @foreach ($rayons as $rayon)
+                                <option value="{{ $rayon->id }}">{{ $rayon->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -42,6 +44,5 @@
                     <button type="submit" class="btn btn-primary btn-block mt-3">Tambah Data</button>
                 </div>
             </form>
-        </div>
-    </div>
+
 @endsection

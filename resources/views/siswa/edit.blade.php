@@ -1,7 +1,7 @@
 @extends('templates.app', ['title' => 'Edit Data Siswa'])
 
 @section('content-dinamis')
-    <form action="{{ route('siswa.update', $siswa->id) }}" method="POST" class="card p-5">
+    <form action="{{ route('siswa.update', $siswa->id) }}" method="POST" class="card justify-content-center p-5">
         @csrf
         @method('PATCH')
 
@@ -16,25 +16,32 @@
         <div class="mb-3 row">
             <label for="name" class="col-sm-3 col-form-label">Nama:</label>
             <div class="col-sm-9">
-                <input type="text" name="name" id="name" class="form-control" value="{{ $siswa['name'] }}" placeholder="Masukkan nama siswa">
+                <input type="text" name="name" id="name" class="form-control" value="{{ $siswa->name }}" placeholder="Masukkan nama siswa">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="NIS" class="col-sm-3 col-form-label">NIS:</label>
             <div class="col-sm-9">
-                <input type="text" name="NIS" id="NIS" class="form-control" value="{{ $siswa['NIS'] }}" placeholder="Masukkan NIS">
+                <input type="text" name="NIS" id="NIS" class="form-control" value="{{ $siswa->NIS }}" placeholder="Masukkan NIS">
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="rayon" class="col-sm-3 col-form-label">Rayon:</label>
+            <label for="rayon_id" class="col-sm-3 col-form-label">Rayon:</label>
             <div class="col-sm-9">
-                <input type="text" name="rayon" id="rayon" class="form-control" value="{{ $siswa['rayon'] }}" placeholder="Masukkan rayon">
+                <select name="rayon_id" id="rayon_id" class="form-control" required>
+                    <option value="" disabled>Pilih Rayon</option>
+                    @foreach ($rayons as $rayon)
+                        <option value="{{ $rayon->id }}" {{ $siswa->rayon_id == $rayon->id ? 'selected' : '' }}>
+                            {{ $rayon->name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="rombel" class="col-sm-3 col-form-label">Rombel:</label>
             <div class="col-sm-9">
-                <input type="text" name="rombel" id="rombel" class="form-control" value="{{ $siswa['rombel'] }}" placeholder="Masukkan rombel">
+                <input type="text" name="rombel" id="rombel" class="form-control" value="{{ $siswa->rombel }}" placeholder="Masukkan rombel">
             </div>
         </div>
 
@@ -42,5 +49,4 @@
             <button type="submit" class="btn btn-primary btn-block mt-3">Ubah Data</button>
         </div>
     </form>
-
 @endsection
