@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
 
 Route::get('/', function () {
-    return view('templates.app');
+    return view('home');
 });
 Route::prefix('siswa')->name('siswa.')->group(function () {
     Route::get('/', [SiswaController::class, 'index'])->name('index');
