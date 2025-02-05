@@ -16,7 +16,9 @@
     @endif
 
     <h1 class="mb-4">Data Siswa</h1>
-    <a href="{{ route('siswa.create') }}" class="btn btn-success mb-3">+ Tambah</a>
+    <div>
+        <a href="{{ route('rayon.index') }}" class="btn btn-success mb-3">data rayon</a>
+    </div>
 
     <table class="table table-striped table-bordered table-hover">
         <thead>
@@ -68,6 +70,7 @@
             </form>
         </div>
     </div>
+    <a href="{{ route('siswa.create') }}" class="btn btn-success mb-3">+ Tambah</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
