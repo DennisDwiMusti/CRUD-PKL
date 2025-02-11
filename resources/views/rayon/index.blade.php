@@ -39,7 +39,7 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ route('siswa.create') }}" class="btn btn-success mb-3">+ Tambah</a>
+    <a href="{{ route('rayon.create') }}" class="btn btn-success mb-3">+ Tambah</a>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -48,11 +48,11 @@
                 @method('DELETE')
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data <strong id="name-rayon"></strong></h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Data Rayon <strong id="name-rayon"></strong></h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus data <strong id="name-rayon"></strong>?
+                        Apakah Anda yakin ingin menghapus data rayon <strong id="name-rayon"></strong>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
