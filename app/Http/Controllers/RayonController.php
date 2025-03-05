@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
-use App\Repository\Repository;
+use App\Repository\RayonRepository;
 
 class RayonController extends Controller
 {
@@ -31,7 +31,7 @@ class RayonController extends Controller
     protected $rayonRepository
 ;
 
-    public function __construct(Repository $repository)
+    public function __construct(RayonRepository $repository)
     {
         $this->rayonRepository = $repository;
     }
@@ -42,8 +42,7 @@ class RayonController extends Controller
     public function store(Request $request)
     {
         //
-        $this->rayonRepository
-->store($request->all());
+        $this->rayonRepository->store($request->all());
         return redirect()->route('rayon.index')->with('success', 'Data rayon berhasil ditambahkan');
     }
 
