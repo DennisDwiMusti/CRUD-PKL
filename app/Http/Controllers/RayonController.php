@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
+use App\Repository\Repository;
 
 class RayonController extends Controller
 {
@@ -26,18 +28,22 @@ class RayonController extends Controller
         return view('rayon.create');
     }
 
+    protected $rayonRepository
+;
+
+    public function __construct(Repository $repository)
+    {
+        $this->rayonRepository = $repository;
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'name' => 'required',
-        ]);
-
-        Rayon::create($request->all());
-
+        $this->rayonRepository
+->store($request->all());
         return redirect()->route('rayon.index')->with('success', 'Data rayon berhasil ditambahkan');
     }
 
@@ -65,13 +71,8 @@ class RayonController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $request->validate([
-            'name' => 'required',
-        ]);
-
-        $rayon = Rayon::findOrFail($id);
-        $rayon->update($request->only('name'));
-
+        $this->rayonRepository
+->update($request->all(), $id);
         return redirect()->route('rayon.index')->with('success', 'Data rayon berhasil diubah');
     }
 
@@ -86,7 +87,8 @@ class RayonController extends Controller
             return redirect()->route('rayon.index')->with('deleted', 'Data rayon tidak ditemukan');
         }
 
-        $rayon->delete();
+        $this->rayonRepository
+->destroy($id);
         return redirect()->route('rayon.index')->with('deleted', 'Data rayon berhasil dihapus');
     }
 }
