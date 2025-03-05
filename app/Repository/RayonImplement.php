@@ -3,9 +3,9 @@
 namespace App\Repository;
 
 use App\Models\Rayon;
-use App\Repository\Repository;
+use App\Repository\RayonRepository;
 
-class RayonImplement implements Repository
+class RayonImplement implements RayonRepository
 {
     public function store($data)
     {
