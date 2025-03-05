@@ -69,17 +69,7 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $request->validate([
-            'name' => 'required',
-            'NIS' => 'required|unique:siswa,NIS,' . $id,
-            'rayon_id' => 'required',
-            'rombel' => 'required',
-        ]);
-
-        $siswa = Siswa::findOrFail($id);
-        $siswa->update($request->all());
-
+        $this->siswaRepository->update($request->all(), $id);
         return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil diubah');
 
     }
