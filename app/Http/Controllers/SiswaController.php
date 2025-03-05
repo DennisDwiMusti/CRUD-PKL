@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Siswa;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
-use App\Repository\Repository;
+use App\Repository\SiswaRepository;
 
 class SiswaController extends Controller
 {
@@ -35,7 +35,7 @@ class SiswaController extends Controller
 
     protected $siswaRepository;
 
-    public function __construct(Repository $repository)
+    public function __construct(SiswaRepository $repository)
     {
         $this->siswaRepository = $repository;
     }
