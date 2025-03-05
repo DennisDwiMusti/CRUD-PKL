@@ -17,6 +17,9 @@ class SiswaImplement implements Repository
         $siswa = Siswa::findorFail($id);
         $siswa->update($data);
     }
-
-
+    public function destroy($id)
+    {
+        $siswa = Siswa::findorFail($id);
+        $siswa->delete();
+    }
 }
