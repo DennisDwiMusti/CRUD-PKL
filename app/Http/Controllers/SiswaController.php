@@ -85,7 +85,7 @@ class SiswaController extends Controller
             return redirect()->route('siswa.index')->with('deleted', 'Data siswa tidak ditemukan');
         }
 
-        $siswa->delete();
+        $this->siswaRepository->destroy($id);
         return redirect()->route('siswa.index')->with('deleted', 'Data siswa berhasil dihapus');
     }
 
