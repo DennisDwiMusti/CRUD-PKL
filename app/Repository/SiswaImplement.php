@@ -3,9 +3,9 @@
 namespace App\Repository;
 
 use App\Models\Siswa;
-use App\Repository\Repository;
+use App\Repository\SiswaRepository;
 
-class SiswaImplement implements Repository
+class SiswaImplement implements SiswaRepository
 {
     public function store($data)
     {
