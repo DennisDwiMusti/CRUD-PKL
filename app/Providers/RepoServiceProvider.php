@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repository\Repository;
 use App\Repository\SiswaImplement;
+use App\Repository\RayonImplement;
 use Illuminate\Support\ServiceProvider;
 
 class RepoServiceProvider extends ServiceProvider
@@ -14,6 +15,7 @@ class RepoServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(Repository::class, SiswaImplement::class);
+        $this->app->bind(Repository::class, RayonImplement::class);
     }
 
     /**
