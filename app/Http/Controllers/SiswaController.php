@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Siswa;
-use App\Models\User;
 use App\Models\Rayon;
 use Illuminate\Http\Request;
+use App\Repository\Repository;
 
 class SiswaController extends Controller
 {
@@ -32,18 +32,17 @@ class SiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+    protected $siswaRepository;
+
+    public function __construct(Repository $repository)
+    {
+        $this->siswaRepository = $repository;
+    }
+
     public function store(Request $request)
     {
-        //
-        $request->validate([
-            'name' => 'required',
-            'NIS' => 'required',
-            'rayon_id' => 'required',
-            'rombel' => 'required',
-        ]);
-
-        Siswa::create($request->all());
-
+        $this->siswaRepository->store($request->all());
         return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil ditambahkan');
     }
 
