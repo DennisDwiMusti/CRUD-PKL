@@ -11,4 +11,12 @@ class SiswaImplement implements Repository
     {
         Siswa::create($data);
     }
+
+    public function update($data, $id)
+    {
+        $siswa = Siswa::findorFail($id);
+        $siswa->update($data);
+    }
+
+
 }
