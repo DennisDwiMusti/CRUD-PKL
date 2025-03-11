@@ -7,6 +7,16 @@ use App\Repository\SiswaRepository;
 
 class SiswaImplement implements SiswaRepository
 {
+
+    public function getAll()
+    {
+        Siswa::all();
+    }
+
+    public function findById(int $id)
+    {
+        Siswa::find($id);
+    }
     public function store($data)
     {
         Siswa::create($data);

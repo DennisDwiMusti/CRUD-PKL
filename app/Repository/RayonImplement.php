@@ -7,6 +7,16 @@ use App\Repository\RayonRepository;
 
 class RayonImplement implements RayonRepository
 {
+    public function getAll()
+    {
+        Rayon::all();
+    }
+
+    public function findById(int $id)
+    {
+        Rayon::find($id);
+    }
+
     public function store($data)
     {
         Rayon::create($data);
